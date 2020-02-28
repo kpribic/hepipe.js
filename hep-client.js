@@ -8,7 +8,6 @@ Giacomo Vacca <giacomo.vacca@gmail.com>
 Federico Cabibbu <federico.cabiddu@gmail.com>
 */
 
-const microTime = require('microtime');
 var HEPjs = require('hep-js');
 var dgram = require('dgram');
 var socket = dgram.createSocket("udp4");
@@ -41,7 +40,7 @@ module.exports = {
     stats.rcvd++;
 
     var hrTime = process.hrtime();
-    var datenow = new microTime.now();
+    var datenow = new Date().getTime();
     rcinfo.time_sec = Math.floor( datenow / 1e6);
     rcinfo.time_usec = (datenow - (rcinfo.time_sec * 1e6)) * 1e3;
 
